@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Mlnky.Business.Services
 {
-    interface IRedirectingService
+    public interface IRedirectingService
     {
+        string GetLongUrl(string shortCode);
+       
     }
 }

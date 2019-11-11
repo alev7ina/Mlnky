@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Mlnky.Common\Mlnky.Common.csproj" />
+    <ProjectReference Include="..\Mlnky.DataAccess.MangoDB\Mlnky.DataAccess.MangoDB.csproj" />
   </ItemGroup>
 
 </Project>
