@@ -13,12 +13,17 @@ namespace Mlnky.RestApi.Controllers
     [ApiController]
     public class UrlController : ControllerBase
     {
+        private readonly IRedirectingService _redirectingService;
+
+        public UrlController(IRedirectingService redirectingService)
+        {
+            _redirectingService = redirectingService;
+        }
         // GET api/values/5
         [HttpGet("{url}")]
         public ActionResult<string> Get(string url)
         {
-            IRedirectingService myService = new RedirectingService();
-            var result = myService.GetLongUrl(url);
+            var result = _redirectingService.GetLongUrl(url);
             return result;
         }
     }

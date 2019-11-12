@@ -25,6 +25,10 @@ namespace Mlnky.RestApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<Common.Repositories.IShorteningsRepository, DataAccess.MangoDB.Repositories.ShorteningsRepository>();
+
+            services.AddTransient<Business.Services.IRedirectingService, Business.Services.Implementations.RedirectingService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

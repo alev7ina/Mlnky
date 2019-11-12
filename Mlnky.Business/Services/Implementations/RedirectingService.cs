@@ -8,11 +8,15 @@ namespace Mlnky.Business.Services.Implementations
 {
     public class RedirectingService : IRedirectingService
     {
+        private readonly IShorteningsRepository _shorteningsRepository;
 
+        public RedirectingService(IShorteningsRepository shorteningsRepository)
+        {
+            _shorteningsRepository = shorteningsRepository;
+        }
         public string GetLongUrl(string shortCode)
         {
-            IShorteningsRepository myRepo = new ShorteningsRepository();
-            var result = myRepo.FindOne(shortCode);
+            var result = _shorteningsRepository.FindOne(shortCode);
             return result.LongUrl;
         }
     }
