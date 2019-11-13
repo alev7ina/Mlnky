@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mlnky.Redirect.Models;
@@ -10,9 +11,27 @@ namespace Mlnky.Redirect.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public HomeController(IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _httpClientFactory = httpClientFactory;
+        }
+        [HttpGet("{url}")]
+        public IActionResult Index(string url)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44381/api/url/" + url);
+            var client = _httpClientFactory.CreateClient();
+            var respons = client.SendAsync(request).Result;
+            if(respons.IsSuccessStatusCode)
+            {
+                var longUrl = respons.Content.ReadAsStringAsync().Result;
+                return Redirect(longUrl);
+            }
+            else
+            {
+                return BadRequest();
+            }         
         }
 
         public IActionResult Privacy()
