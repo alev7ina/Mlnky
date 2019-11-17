@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mlnky.Business.Services;
-using Mlnky.Business.Services.Implementations;
 using Mlnky.RestApi.Models;
 
 namespace Mlnky.RestApi.Controllers
