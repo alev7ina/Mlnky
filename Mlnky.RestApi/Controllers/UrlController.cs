@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mlnky.Business.Services;
 using Mlnky.Business.Services.Implementations;
+using Mlnky.RestApi.Models;
 
 namespace Mlnky.RestApi.Controllers
 {
@@ -25,6 +26,11 @@ namespace Mlnky.RestApi.Controllers
         {
             var result = _redirectingService.GetLongUrl(url);
             return result;
+        }
+        // POST api/values
+        [HttpPost]
+        public void Post([FromForm] ShortenUrlRequestModel request)
+        {
         }
     }
 }
