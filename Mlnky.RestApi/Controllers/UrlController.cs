@@ -9,7 +9,7 @@ using Mlnky.RestApi.Models;
 
 namespace Mlnky.RestApi.Controllers
 {
-    [Route("api/Url")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UrlController : ControllerBase
     {
