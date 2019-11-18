@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Mlnky.Business.Services
 {
-    interface IShorteningService
+    public interface IShorteningService
     {
+        string Shorten(string longUrl, string baseUrl);
     }
 }

@@ -28,6 +28,7 @@ namespace Mlnky.RestApi
             services.AddTransient<Common.Repositories.IShorteningsRepository, DataAccess.MangoDB.Repositories.ShorteningsRepository>();
 
             services.AddTransient<Business.Services.IRedirectingService, Business.Services.RedirectingService>();
+            services.AddTransient<Business.Services.IShorteningService, Business.Services.ShorteningService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

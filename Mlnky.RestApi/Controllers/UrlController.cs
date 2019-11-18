@@ -26,10 +26,6 @@ namespace Mlnky.RestApi.Controllers
             var result = _redirectingService.GetLongUrl(url);
             return result;
         }
-        // POST api/values
-        [HttpPost]
-        public void Post([FromForm] ShortenUrlRequestModel request)
-        {
-        }
+        
     }
 }
