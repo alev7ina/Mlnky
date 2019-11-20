@@ -8,7 +8,7 @@ namespace Mlnky.DataAccess.MangoDB.Models
     public class ShorteningModel
     {
         public ObjectId Id { get; set; }
+        public long ShortKey { get; set; }
         public string LongUrl { get; set; }
-        public string ShortUrl { get; set; }
     }
 }

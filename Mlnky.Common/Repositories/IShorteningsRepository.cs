@@ -9,6 +9,6 @@ namespace Mlnky.Common.Repositories
     {
         void Save(Shortening shortening);
 
-        Shortening FindOne(string shortCode);
+        Shortening FindOne(long shortCode);
     }
 }

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Base62" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Mlnky.Common\Mlnky.Common.csproj" />
     <ProjectReference Include="..\Mlnky.DataAccess.MangoDB\Mlnky.DataAccess.MangoDB.csproj" />
   </ItemGroup>

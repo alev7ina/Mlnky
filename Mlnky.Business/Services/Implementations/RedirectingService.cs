@@ -14,6 +14,7 @@ namespace Mlnky.Business.Services
         {
             _shorteningsRepository = shorteningsRepository;
         }
+
         public string GetLongUrl(string shortCode)
         {
             var result = _shorteningsRepository.FindOne(shortCode);
