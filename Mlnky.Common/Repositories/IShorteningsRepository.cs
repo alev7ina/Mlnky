@@ -10,5 +10,6 @@ namespace Mlnky.Common.Repositories
         void Save(Shortening shortening);
 
         Shortening FindOne(long shortCode);
+        long GetNextId();
     }
 }

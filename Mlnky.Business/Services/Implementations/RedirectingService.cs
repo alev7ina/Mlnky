@@ -17,7 +17,14 @@ namespace Mlnky.Business.Services
 
         public string GetLongUrl(string shortCode)
         {
-            var result = _shorteningsRepository.FindOne(shortCode);
+            var converter = new Base62.Base62Converter();
+            var decode = converter.Decode(shortCode);
+            if (!long.TryParse(decode, out long shortKey))
+            {
+                throw new ArgumentException("Can't convert");
+            }
+
+            var result = _shorteningsRepository.FindOne(shortKey);
             return result.LongUrl;
         }
     }
