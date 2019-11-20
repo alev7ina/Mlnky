@@ -1,0 +1,33 @@
+﻿@model Mlnky.Admin.Models.ShorteningRequestViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Shortening tool</h1>
+
+<h4>Request the shortening</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Shorten">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LongUrl" class="control-label"></label>
+                <input asp-for="LongUrl" class="form-control" />
+                <span asp-validation-for="LongUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Shorten" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
