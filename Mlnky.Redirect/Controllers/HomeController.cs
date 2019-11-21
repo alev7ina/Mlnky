@@ -17,15 +17,17 @@ namespace Mlnky.Redirect.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
+
         [HttpGet("{url}")]
         public IActionResult Index(string url)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:44381/api/url/" + url);
             var client = _httpClientFactory.CreateClient();
-            var respons = client.SendAsync(request).Result;
-            if(respons.IsSuccessStatusCode)
+            var response = client.SendAsync(request).Result;
+
+            if(response.IsSuccessStatusCode)
             {
-                var longUrl = respons.Content.ReadAsStringAsync().Result;
+                var longUrl = response.Content.ReadAsStringAsync().Result;
                 return Redirect(longUrl);
             }
             else

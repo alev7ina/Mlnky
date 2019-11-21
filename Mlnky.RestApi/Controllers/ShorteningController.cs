@@ -14,7 +14,8 @@ namespace Mlnky.RestApi.Controllers
     public class ShorteningController : ControllerBase
     {
         private readonly IShorteningService _shorteningService;
-         public ShorteningController(IShorteningService shorteningService)
+
+        public ShorteningController(IShorteningService shorteningService)
         {
             _shorteningService = shorteningService;
         }
@@ -24,7 +25,7 @@ namespace Mlnky.RestApi.Controllers
         public ActionResult<ShortenUrlResponseModel> Post([FromForm] ShortenUrlRequestModel request)
         {
             string ShortUrl = _shorteningService.Shorten(request.LongUrl, request.BaseUrl);
-            
+
             ShortenUrlResponseModel model = new ShortenUrlResponseModel();
             model.ShortenedUrl = ShortUrl;
 

@@ -14,7 +14,9 @@
             @Html.DisplayNameFor(model => model.ShortUrl)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortUrl)
+            <a href="@Html.DisplayFor(model => model.ShortUrl)">
+                @Html.DisplayFor(model => model.ShortUrl)
+            </a>
         </dd>
     </dl>
 </div>
